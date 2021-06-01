@@ -1,0 +1,45 @@
+<div>
+  <div class="btnhead">
+    <nav>
+      <a routerLink="/login"><button mat-button class="register">Login</button></a>
+    </nav>
+  </div>
+<div class="centered">
+  <div>
+    <img class="logo" src="../../assets/logotext.png" alt="logohead"/>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label class="field">Username</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+    <!-- <p *ngIf="!username" [ngClass]="fadeOut()">{{errTxt}}</p> -->
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label class="field">Email</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+    <!-- <p *ngIf="!username" [ngClass]="fadeOut()">{{errTxt}}</p> -->
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label class="field">Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix mat-icon-button (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <!-- <p *ngIf="!password" [ngClass]="fadeOut()">{{errTxt}}</p> -->
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label class="field">Confirm Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix mat-icon-button (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <!-- <p *ngIf="!password" [ngClass]="fadeOut()">{{errTxt}}</p> -->
+  </div>
+  <div>
+    <button mat-button class="register">Register</button>
+  </div>
+</div>
+</div>

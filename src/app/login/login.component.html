@@ -1,3 +1,9 @@
+<div>
+  <div class="btnhead">
+    <nav>
+      <a routerLink="/register"><button mat-button class="register">Register</button></a>
+    </nav>
+  </div>
 <div class="centered">
   <div>
     <img class="logo" src="../../assets/logotext.png" alt="logohead"/>
@@ -18,6 +24,7 @@
     <p *ngIf="!password" [ngClass]="fadeOut()">{{errTxt}}</p>
   </div>
   <div>
-    <button mat-button class="button" (click)="doLogin()">Login</button>
+    <button mat-button class="login_button" (click)="doLogin()">Login</button>
   </div>
+</div>
 </div>

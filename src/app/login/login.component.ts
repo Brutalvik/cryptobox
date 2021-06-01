@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-import { promise } from 'protractor';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +19,8 @@ export class LoginComponent implements OnInit {
   username = ""
   password = ""
   errTxt = ""
+
+  name = 'putri'
 
   fadeOut() {
     setTimeout( () => {
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
       }
     else
       {
-        this.errTxt = "Login Success"
+        null
       }
   }
 }

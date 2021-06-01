@@ -38,11 +38,12 @@
   width: 6em !important;
 }
 
-.login_button:active{
+.register:active{
   background-color:#326c9c;
 }
 
 .register {
+  float: right !important;
   background-color: #43abfa;
   color: aliceblue;
   width: 6em !important;
