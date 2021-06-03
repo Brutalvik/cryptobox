@@ -1,10 +1,20 @@
 <div>
-    <div class="btnhead">
-      <nav>
-        <a routerLink="/register"><button mat-button class="button">Logout</button></a>
-      </nav>
+  <div>
+      <div class="btnhead">
+        <nav>
+          <a routerLink="/register"><button mat-button class="button">Logout</button></a>
+        </nav>
+      </div>
+      <div>
+        <img class="logo" src="../../assets/logotext.png" alt="logohead"/>
+      </div>
+  </div>
+  <div *ngIf="cryptos">
+    <div class="centered">
+    <div id="crypto-container"  *ngFor="let crypto of objectKeys(cryptos)">
+      <span class="left">{{ crypto }}</span>
+      <span class="right">{{ cryptos[crypto].CAD | currency: 'CAD': true}}</span>
     </div>
-    <div>
-      <img class="logo" src="../../assets/logotext.png" alt="logohead"/>
-    </div>
+  </div>
+</div>
 </div>

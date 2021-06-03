@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  objectKeys = Object.keys;
+  cryptos: any;
+
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=CAD')
+    .subscribe(result => this.cryptos = result)
   }
 
 }

@@ -24,3 +24,28 @@
   height: 5em;
 }
 
+
+.crypto-container {
+  background-color: white;
+  width: 70%;
+  margin: 0 auto 4px auto;
+  padding: 1em;
+  box-shadow: 1px 1px 0 black;
+  color: white;
+}
+
+span.left {
+  font-weight: bold;
+  float: left;
+}
+
+span.right {
+  float: right;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
