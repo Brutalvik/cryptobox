@@ -31,14 +31,14 @@
   cursor: pointer
 }
 
-.login_button {
+.button {
   float: right !important;
   background-color: #43abfa;
   color: aliceblue;
   width: 6em !important;
 }
 
-.login_button:active{
+.button:active{
   background-color:#326c9c;
 }
 

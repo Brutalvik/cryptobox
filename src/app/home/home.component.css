@@ -1,0 +1,26 @@
+.header {
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+}
+
+.btnhead {
+  float: right !important;
+  padding-right: 5em;
+  padding-top: 2em;
+}
+.button {
+  float: right !important;
+  background-color: #43abfa;
+  color: aliceblue;
+  width: 6em !important;
+}
+
+.button:active{
+  background-color:#326c9c;
+}
+
+.logo {
+  width: 15em;
+  height: 5em;
+}
+

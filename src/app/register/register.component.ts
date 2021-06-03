@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,12 +9,36 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent implements OnInit {
+  regForm;
+  constructor() {
+   }
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  hide = true
+  errorMessage = 0;
+  username
+  email
+  password
+  confirm
+
+  users = [];
+
+
+ registerUser() {
+
+
+  const user = {
+    username: this.username,
+    email: this.email,
+    password: this.password
   }
 
-    hide = true;
+  this.users.push(user);
+
+  console.log(this.users)
+ }
+
+ doLogin
 
 }
