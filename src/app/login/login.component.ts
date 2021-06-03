@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,43 +12,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private authService : AuthService) { }
 
   ngOnInit(): void {
   }
 
   hide = true;
 
-  username = ""
-  password = ""
-  errTxt = ""
+  loginUser = new FormGroup ({
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required, Validators.minLength(7)])
+})
 
-  name = 'putri'
+doLogin(){
+  console.log(this.loginUser.value)
+}
 
-  fadeOut() {
-    setTimeout( () => {
-          this.errTxt = "";
-        }, 6000);
-      }
-
-  doLogin() {
-    //validation
-    if (this.username === "" && this.password === "")
-      {
-        this.errTxt = "* Required"
-      }
-    else if (this.username === "")
-      {
-        this.errTxt = "Username cannot be blank"
-
-      }
-    else if (this.password === "")
-      {
-        this.errTxt = "Password cannot be blank"
-      }
-    else
-      {
-          this.router.navigateByUrl('/home')
-      }
-  }
 }
