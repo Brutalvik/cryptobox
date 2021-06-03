@@ -11,10 +11,13 @@
   </div>
   <div *ngIf="cryptos">
     <div class="centered">
-    <div id="crypto-container"  *ngFor="let crypto of objectKeys(cryptos)">
-      <span class="left">{{ crypto }}</span>
-      <span class="right">{{ cryptos[crypto].CAD | currency: 'CAD': true}}</span>
-    </div>
+    <!-- <div id="crypto-container"  *ngFor="let crypto of objectKeys(cryptos)">
+      <span class="left">{{ crypto }} </span>
+      <span class="right">{{ cryptos[crypto].CAD | currency: 'CAD': "symbol"}}</span>
+    </div> -->
+    <!-- <div id="crypto-container"  *ngFor="let ticker of tickerArray">
+      <span>{{ ticker }}</span>
+    </div> -->
   </div>
 </div>
 </div>
