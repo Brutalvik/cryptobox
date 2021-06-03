@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   })
 
   register(): void {
-    console.log(this.registerUser);
+    console.log(this.registerUser.value);
   }
 
 
