@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,36 +9,25 @@ import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/for
   encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent implements OnInit {
-  regForm;
-  constructor() {
-   }
-
-  ngOnInit(): void {}
-
   hide = true
-  errorMessage = 0;
-  username
-  email
-  password
-  confirm
 
-  users = [];
-
-
- registerUser() {
-
-
-  const user = {
-    username: this.username,
-    email: this.email,
-    password: this.password
+  constructor() {
   }
 
-  this.users.push(user);
+  ngOnInit(): void {
+  }
 
-  console.log(this.users)
- }
 
- doLogin
+  registerUser = new FormGroup ({
+      username: new FormControl("", [Validators.required, Validators.minLength(4)]),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      password: new FormControl("", [Validators.required, Validators.minLength(7)])
+  })
+
+  register(): void {
+    console.log(this.registerUser);
+  }
+
+
 
 }
