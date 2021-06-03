@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   hide = true
 
-  constructor() {
+  constructor(private authService : AuthService) {
   }
 
   ngOnInit(): void {
@@ -25,7 +26,10 @@ export class RegisterComponent implements OnInit {
   })
 
   register(): void {
-    console.log(this.registerUser.value);
+    //console.log(this.registerUser.value);
+    this.authService.register(this.registerUser.value)
+                    .subscribe(
+                      (msg) => console.log(msg))
   }
 
 
