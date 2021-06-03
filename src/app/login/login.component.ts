@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
     password: new FormControl("", [Validators.required, Validators.minLength(7)])
 })
 
-doLogin(){
-  console.log(this.loginUser.value)
+doLogin(): void{
+  this.authService.login(this.loginUser.value.email, this.loginUser.value.password).subscribe();
 }
 
 }
