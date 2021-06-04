@@ -1,8 +1,8 @@
-<div>
+<div class="main">
   <div>
       <div class="btnhead">
         <nav>
-          <a routerLink="/register"><button mat-button class="button">Logout</button></a>
+          <button (click)="logout()" mat-button class="button">Logout</button>
         </nav>
       </div>
       <div>
@@ -11,33 +11,59 @@
   </div>
     <div class="dropdownItem">
       <mat-form-field class="dropdown" appearance="fill">
-        <mat-label>Select Crypto</mat-label>
-        <mat-select [(value)]="selectedCrypto">
-          <mat-option *ngFor="let ticker of tickerArray" value={{ticker}}>{{ticker}}</mat-option>
+        <mat-label class="dropdown">Select Crypto</mat-label>
+        <mat-select class="field" [(value)]="selectedCrypto">
+          <mat-option  *ngFor="let ticker of tickerArray" value={{ticker}}>{{ticker}}</mat-option>
         </mat-select>
       </mat-form-field>
     <br>
       <mat-form-field  class="dropdown" appearance="fill">
-        <mat-label>Select Currency</mat-label>
-        <mat-select [(value)]="selectedCurrency">
+        <mat-label class="dropdown">Select Currency</mat-label>
+        <mat-select class="field" [(value)]="selectedCurrency">
           <mat-option *ngFor="let currency of currencyArray" value={{currency}}>{{currency}}</mat-option>
         </mat-select>
       </mat-form-field>
     <br>
     <div class="dropdown">
-    <button mat-raised-button class="displaybtn" (click)="displayData()">Display</button>
+    <button mat-raised-button class="displaybtn" (click)="handleClick()">Display</button>
+    <button mat-raised-button class="resetbtn" (click)="reset()">Reset</button>
     </div>
   </div>
   <div class="centered">
-
-    <div *ngFor="let crypto of cryptoArray">
-      <h1>TODAYS PRICE</h1>
-      <p>Crytpo: {{selectedCrypto}}</p>
-      <p>Symbol: {{crypto.FROMSYMBOL}}</p>
-      <p>Price: {{crypto.PRICE}}</p>
-      <p>Day's High: {{crypto.HIGHDAY}}</p>
-      <p>Day's Low: {{crypto.LOWDAY}}</p>
-      <p>Market Cap: {{crypto.MKTCAP}}</p>
-    </div>
+      <h1 *ngIf="statusCode">{{errMsg}}</h1>
+      <mat-spinner *ngIf="spin"></mat-spinner>
+      <div *ngIf="!spin">
+        <table class="table" *ngFor="let crypto of cryptoArray">
+          <th>TODAYS PRICE</th>
+          <tr>
+            <td>Crypto</td>
+            <td>{{selectedCrypto}}</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td [ngStyle]="crypto.PRICE<crypto.OPENDAY ? {'backgroundColor': 'red'}: {'backgroundColor':'green'}">{{crypto.PRICE}}</td>
+          </tr>
+          <tr>
+            <td>High</td>
+            <td>{{crypto.HIGHDAY}}</td>
+          </tr>
+          <tr>
+            <td>Low</td>
+            <td>{{crypto.LOWDAY}}</td>
+          </tr>
+          <tr>
+            <td>Open</td>
+            <td>{{crypto.OPENDAY}}</td>
+          </tr>
+          <tr>
+            <td>Supply</td>
+            <td>{{crypto.SUPPLY}}</td>
+          </tr>
+          <tr>
+            <td>Market Cap</td>
+            <td>{{crypto.MKTCAP}}</td>
+          </tr>
+        </table>
+      </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormControl} from '@angular/forms';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,32 +13,36 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export class HomeComponent implements OnInit {
 
-  objectKeys = Object.keys;
   cryptos: any;
   tickers: any;
   ticker: any;
   tickerArray = []; //Array of tickers
   currencyArray = []; //Array of currencies
-
-  selectedCrypto = "BTC"
-  selectedCurrency = "CAD"
+  errMsg = ""
+  statusCode = false
+  selectedCrypto = ""
+  selectedCurrency = ""
   cryptoData: any;
   cryptoInfo: any;
   crypto: any;
   cryptoArray = [];
 
+  spin = false;
 
   tickerApi = 'https://min-api.cryptocompare.com/data/blockchain/list?api_key=cea3b6e1d525e7743a9a2d803db00d8518755a1fd9e7df73c126a4911feb36ce'
   currencyApi = 'https://openexchangerates.org/api/currencies.json'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private _auth: AuthService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.getTickers()
     this.getCurrency()
+    this.updateData()
   }
 
-
+  //currency extration from currency api
   getCurrency() {
     this.http.get(this.currencyApi)
     .toPromise()
@@ -52,6 +56,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  //ticker extraction from ticker api
   getTickers() {
     this.http.get(this.tickerApi)
     .toPromise().then(result =>
@@ -68,6 +73,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  //data display handler
   displayData(){
     this.cryptoArray = []
     this.http.get(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${this.selectedCrypto}&tsyms=${this.selectedCurrency}`).toPromise()
@@ -86,7 +92,43 @@ export class HomeComponent implements OnInit {
         }
       }
     })
+  }
 
+  //click event handler
+  handleClick() {
+    if(this.selectedCrypto === "" || this.selectedCurrency === "")
+    {
+      this.statusCode = true;
+      this.errMsg = "Selection Cannot be Blank"
+    }
+    else {
+      this.statusCode = false;
+      this.spin = true;
+      this.spinner();
+      this.displayData();
+    }
+  }
+
+  //Spinner Control
+  spinner = async () => {
+    setTimeout(() => this.spin = false, 2000)
+  }
+
+  //Refresh Data Every 10 seconds
+  updateData = async () => {
+    setInterval(() => {
+      this.displayData();
+    }, 10000)
+  }
+
+  reset(){
+    this.selectedCrypto=""
+    this.selectedCurrency=""
+  }
+
+  logout(){
+    this._auth.logout()
+    this._router.navigate(['/register']);
   }
 
 }

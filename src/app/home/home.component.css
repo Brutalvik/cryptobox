@@ -1,8 +1,3 @@
-.header {
-  padding-top: 0.5em;
-  padding-left: 0.5em;
-}
-
 .btnhead {
   float: right !important;
   padding-right: 5em;
@@ -27,29 +22,25 @@
 
 
 .dropdown{
+  width: 15em;
   margin-top: 2em;
   margin-left: 2em;
-  color: aliceblue !important;
+  color: white !important;
 }
 
 .dropdown:active {
   color: aliceblue !important;
 }
 
-span.left {
-  font-weight: bold;
-  float: left;
+.field{
+  margin-top: 1em;
+  text-align: center;
 }
 
-span.right {
-  float: right;
-}
-
-.centered {
+.right {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 20%;
+  right: 5em;
 }
 
 .displaybtn {
@@ -57,4 +48,33 @@ span.right {
   background-color: #43abfa;
   color: aliceblue;
   width: 6em !important;
+}
+.resetbtn {
+  float: right !important;
+  background-color: #43abfa;
+  color: aliceblue;
+  width: 6em !important;
+}
+
+.centered {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 17em;
+  transform: translate(-50%, -50%);
+}
+
+.table {
+  width: 100%;
+  color: aliceblue;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  margin-top: 70%;
+  stroke: #43abfa;
+  }
+
+.mat-select .mat-select-value{
+  color: aliceblue !important;
+  background-color: #202424 !important;
 }

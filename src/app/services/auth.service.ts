@@ -14,7 +14,8 @@ import { ErrorHandlerService } from './error-handler.service';
 })
 export class AuthService {
 
-  private url = "http://localhost:3000/auth";
+
+   private url = "http://localhost:3000/auth";
 
   isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
@@ -29,6 +30,14 @@ export class AuthService {
     private errorHandlerService: ErrorHandlerService,
     private router: Router
     ) { }
+
+    userLoggedIn(){
+      return !!localStorage.getItem('token')
+    }
+
+    logout() {
+      return localStorage.removeItem('token')
+    }
 
   register(user: Omit<User, "id">): Observable<User> {
       return this.http
