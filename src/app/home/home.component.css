@@ -8,6 +8,7 @@
   padding-right: 5em;
   padding-top: 2em;
 }
+
 .button {
   float: right !important;
   background-color: #43abfa;
@@ -25,13 +26,14 @@
 }
 
 
-.crypto-container {
-  background-color: white;
-  width: 70%;
-  margin: 0 auto 4px auto;
-  padding: 1em;
-  box-shadow: 1px 1px 0 black;
-  color: white;
+.dropdown{
+  margin-top: 2em;
+  margin-left: 2em;
+  color: aliceblue !important;
+}
+
+.dropdown:active {
+  color: aliceblue !important;
 }
 
 span.left {
@@ -48,4 +50,11 @@ span.right {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.displaybtn {
+  float: left !important;
+  background-color: #43abfa;
+  color: aliceblue;
+  width: 6em !important;
 }

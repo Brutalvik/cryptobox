@@ -9,15 +9,23 @@
         <img class="logo" src="../../assets/logotext.png" alt="logohead"/>
       </div>
   </div>
-  <div *ngIf="cryptos">
-    <div class="centered">
-    <!-- <div id="crypto-container"  *ngFor="let crypto of objectKeys(cryptos)">
-      <span class="left">{{ crypto }} </span>
-      <span class="right">{{ cryptos[crypto].CAD | currency: 'CAD': "symbol"}}</span>
-    </div> -->
-    <!-- <div id="crypto-container"  *ngFor="let ticker of tickerArray">
-      <span>{{ ticker }}</span>
-    </div> -->
+    <div class="dropdownItem">
+      <mat-form-field class="dropdown" appearance="fill">
+        <mat-label>Select Crypto</mat-label>
+        <mat-select [(value)]="selectedCrypto">
+          <mat-option *ngFor="let ticker of tickerArray" value={{ticker}}>{{ticker}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br>
+      <mat-form-field  class="dropdown" appearance="fill">
+        <mat-label>Select Currency</mat-label>
+        <mat-select [(value)]="selectedCurrency">
+          <mat-option *ngFor="let currency of currencyArray" value={{currency}}>{{currency}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br>
+    <div class="dropdown">
+    <button mat-raised-button class="displaybtn" (click)="displayData()">Display</button>
+    </div>
+    </div>
   </div>
-</div>
-</div>
