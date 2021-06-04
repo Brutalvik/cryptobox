@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/register', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  /*Protected Route*/{path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent}
 ];
 
