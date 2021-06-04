@@ -27,5 +27,17 @@
     <div class="dropdown">
     <button mat-raised-button class="displaybtn" (click)="displayData()">Display</button>
     </div>
+  </div>
+  <div class="centered">
+
+    <div *ngFor="let crypto of cryptoArray">
+      <h1>TODAYS PRICE</h1>
+      <p>Crytpo: {{selectedCrypto}}</p>
+      <p>Symbol: {{crypto.FROMSYMBOL}}</p>
+      <p>Price: {{crypto.PRICE}}</p>
+      <p>Day's High: {{crypto.HIGHDAY}}</p>
+      <p>Day's Low: {{crypto.LOWDAY}}</p>
+      <p>Market Cap: {{crypto.MKTCAP}}</p>
     </div>
   </div>
+</div>
