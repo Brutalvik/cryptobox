@@ -10,6 +10,7 @@ export class AuthGuard implements CanActivate {
   constructor(private _authService: AuthService,
               private _router: Router) {}
 
+  //Protected Route for Homepage
   canActivate(): boolean {
     if(this._authService.userLoggedIn()) {
       return true

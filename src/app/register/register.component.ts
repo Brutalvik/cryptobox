@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent implements OnInit {
+   //Password View Toggle
   hide = true
 
   constructor(private authService : AuthService) {
@@ -32,7 +33,4 @@ export class RegisterComponent implements OnInit {
                     .subscribe(
                       (msg) => console.log(msg))
   }
-
-
-
 }

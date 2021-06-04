@@ -15,7 +15,7 @@ import { ErrorHandlerService } from './error-handler.service';
 export class AuthService {
 
 
-   private url = "http://localhost:3000/auth";
+  private url = "http://localhost:3000/auth";
 
   isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
@@ -31,14 +31,17 @@ export class AuthService {
     private router: Router
     ) { }
 
+    //Login Status with JWT
     userLoggedIn(){
       return !!localStorage.getItem('token')
     }
 
+    //Logout - Delete JWT Client Side
     logout() {
       return localStorage.removeItem('token')
     }
 
+  //Register User
   register(user: Omit<User, "id">): Observable<User> {
       return this.http
         .post<User>(`${this.url}/register`, user, this.httpOptions)
@@ -48,6 +51,7 @@ export class AuthService {
       )
   }
 
+  //Login User
   login(email: Pick<User, "email">, password: Pick<User, "password">): Observable<{
     token: string;
     userID:  Pick<User, "id">

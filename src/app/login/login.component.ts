@@ -16,14 +16,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  //Password View Toggle
   hide = true;
-
+  //Login Form
   loginUser = new FormGroup ({
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(7)])
 })
-
+ //Login Function
 doLogin(): void{
   this.authService.login(this.loginUser.value.email, this.loginUser.value.password).subscribe();
 }
