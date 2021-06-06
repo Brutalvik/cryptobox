@@ -81,14 +81,14 @@ export class HomeComponent implements OnInit {
       this.cryptoData = result["DISPLAY"]
       for (let crypto in this.cryptoData)
       {
-        console.log(crypto)
+        // console.log(crypto)
         this.cryptoInfo = this.cryptoData[crypto]
         for (let item in this.cryptoInfo)
         {
-          console.log(item)
+          // console.log(item)
           this.crypto = this.cryptoInfo[item]
           this.cryptoArray.push(this.crypto)
-          console.log(this.cryptoArray)
+          // console.log(this.cryptoArray)
         }
       }
     })

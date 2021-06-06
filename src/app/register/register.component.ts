@@ -12,7 +12,8 @@ import { AuthService } from '../services/auth.service';
 export class RegisterComponent implements OnInit {
    //Password View Toggle
   hide = true
-
+  message = ""
+  reg = false;
   constructor(private authService : AuthService) {
   }
 
@@ -28,9 +29,14 @@ export class RegisterComponent implements OnInit {
 
   //Register Function
   register(): void {
+    this.reg = true;
     //console.log(this.registerUser.value);
     this.authService.register(this.registerUser.value)
-                    .subscribe(
-                      (msg) => console.log(msg))
+                    .toPromise()
+                    .then(msg => { this.message = msg["message"]} )
+                    //console.log(this.reg, this.message)
+
   }
+
+
 }
