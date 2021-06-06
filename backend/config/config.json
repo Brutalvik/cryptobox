@@ -1,6 +1,6 @@
 {
-    "host": "localhost",
-    "user": "root",
-    "database": "cryptobox",
-    "password": "root"
+  "host": "remotemysql.com",
+  "user": "qN5pEDjT0V",
+  "database": "qN5pEDjT0V",
+  "password": "ZS78VqYP6Z"
 }
