@@ -40,7 +40,9 @@ export class HomeComponent implements OnInit {
     this.getTickers()
     this.getCurrency()
     this.updateData()
+
   }
+
 
   //currency extration from currency api
   getCurrency() {
@@ -72,6 +74,7 @@ export class HomeComponent implements OnInit {
         }
       });
   }
+
 
   //data display handler
   displayData(){

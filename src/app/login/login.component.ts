@@ -27,10 +27,18 @@ export class LoginComponent implements OnInit {
     password: new FormControl("", [Validators.required, Validators.minLength(7)])
 })
 
+errorCheck(){
+  if (localStorage.getItem("infiniteScrollEnabled") === null)
+  {
+    this.errorStatus = true;
+    this.errorMessage = "Invalid Login Details"
+  }
+}
 
  //Login Function
 doLogin(): void{
-    this.authService.login(this.loginUser.value.email, this.loginUser.value.password).subscribe();
+  this.authService.login(this.loginUser.value.email, this.loginUser.value.password).subscribe()
+  this.errorCheck();
 }
 
 }
