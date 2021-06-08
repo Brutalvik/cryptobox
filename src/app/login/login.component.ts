@@ -36,9 +36,9 @@ errorCheck(){
 }
 
  //Login Function
-doLogin(): void{
+async doLogin() {
   this.authService.login(this.loginUser.value.email, this.loginUser.value.password).subscribe()
-  this.errorCheck();
+  await setInterval(() => this.errorCheck(), 2000);
 }
 
 }
